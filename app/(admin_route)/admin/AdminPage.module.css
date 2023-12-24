@@ -1,0 +1,21 @@
+.admin_welcome {
+  padding-top: 50px;
+}
+.adminPageContainer {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.adminPageContainer h2 {
+  color: #333;
+}
+
+.adminPageContainer p {
+  color: #666;
+  margin-top: 10px;
+}

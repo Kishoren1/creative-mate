@@ -1,0 +1,73 @@
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.75rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 1.4rem;
+  transition: 0.3s;
+  cursor: pointer;
+  color: #fff;
+  border: 2px solid #141414;
+  background-color: #141414;
+}
+.btn:hover {
+  transform: translateY(-0.15rem);
+}
+
+/* login  */
+.login {
+  margin: 3.5rem 0;
+}
+.login__wrap {
+  padding-top: 3.5rem;
+  width: 100%;
+  margin: 2% auto;
+  max-width: 800px;
+}
+.login_form {
+  width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.form_field {
+  margin-bottom: 1.5rem;
+}
+.form_field label {
+  display: block;
+  color: #020202;
+  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+}
+.form_field input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  outline: none;
+}
+.form_field input::placeholder {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+.warning {
+  color: red;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.cred__footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.social__login {
+  text-align: center;
+}
+.social__login button {
+  padding: 0.3rem 0.8rem;
+}
