@@ -19,8 +19,10 @@ const Navbar = () => {
   ];
 
   const adminNavItems = [
+    { text: "About Us", link: "/about-us" },
+    { text: "Portfolio", link: "/portfolio" },
+    { text: "Exhibitions", link: "/events" },
     { text: "Dashboard", link: "/admin/dashboard" },
-    { text: "Users", link: "/admin/users" },
   ];
 
   const getNavItems = () => {
