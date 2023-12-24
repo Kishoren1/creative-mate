@@ -8,7 +8,27 @@ import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
   const { data: session } = useSession();
+  const userRole = session?.user?.role;
   const router = useRouter();
+
+  const normalNavItems = [
+    { text: "About Us", link: "/about-us" },
+    { text: "Portfolio", link: "/portfolio" },
+    { text: "Exhibitions", link: "/events" },
+    { text: "Contact", link: "/contact" },
+  ];
+
+  const adminNavItems = [
+    { text: "Dashboard", link: "/admin/dashboard" },
+    { text: "Users", link: "/admin/users" },
+  ];
+
+  const getNavItems = () => {
+    if (userRole === "admin") return adminNavItems;
+    return normalNavItems;
+  };
+
+  const navItems = getNavItems();
 
   const handleLogout = async () => {
     await signOut({ redirect: false });
@@ -39,34 +59,13 @@ const Navbar = () => {
             isNavOpen ? `${styles.navList} ${styles.open}` : styles.navList
           }
         >
-          <li className={styles.navItem}>
-            <Link href="/about-us" onClick={handleLinkClick}>
-              About Us
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/portfolio" onClick={handleLinkClick}>
-              Portfolio
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/events" onClick={handleLinkClick}>
-              Exhibitions
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/contact" onClick={handleLinkClick}>
-              Contact
-            </Link>
-          </li>
-
-          <li className={styles.navItem}>
-            {session && (
-              <>
-                <Link href="/admin/dashboard">Dashboard</Link>
-              </>
-            )}
-          </li>
+          {navItems.map((item) => (
+            <li key={item.link} className={styles.navItem}>
+              <Link href={item.link} onClick={handleLinkClick}>
+                {item.text}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <ul className={styles.nav_socials}>
