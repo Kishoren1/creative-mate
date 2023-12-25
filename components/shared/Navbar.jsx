@@ -9,6 +9,7 @@ import { signOut, useSession } from "next-auth/react";
 const Navbar = () => {
   const { data: session } = useSession();
   const userRole = session?.user?.role;
+  const isAdmin = session && session.user.role === "admin";
   const router = useRouter();
 
   const normalNavItems = [
@@ -72,7 +73,7 @@ const Navbar = () => {
 
         <ul className={styles.nav_socials}>
           <li className={styles.navSocial}>
-            {!session && (
+            {!isAdmin && (
               <>
                 <a href="https://www.facebook.com" target="_blank">
                   <i className="bx bxl-facebook bx-sm"></i>
@@ -81,7 +82,7 @@ const Navbar = () => {
             )}
           </li>
           <li className={styles.navSocial}>
-            {!session && (
+            {!isAdmin && (
               <>
                 <a href="https://www.instagram.com/" target="_blank">
                   <i className="bx bxl-instagram-alt bx-sm"></i>
@@ -90,11 +91,24 @@ const Navbar = () => {
             )}
           </li>
 
-          <li className={styles.navSocial}>
-            {session && (
+          <li className={styles.nav_profile}>
+            {session && session.user.role === "admin" && (
               <>
-                <span>{session.user.name}! </span>
-                <button onClick={handleLogout}>Logout</button>
+                <span>{session.user.name}</span>
+                <i className="bx bx-user-circle bx-sm"></i>
+                <div className={styles.dropdownContent}>
+                  <li className={styles.dropdownItem}>
+                    <Link href="/profile">Profile</Link>
+                  </li>
+                  <li className={styles.dropdownItem}>
+                    <button
+                      onClick={handleLogout}
+                      className={styles.btn_logout}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </div>
               </>
             )}
           </li>

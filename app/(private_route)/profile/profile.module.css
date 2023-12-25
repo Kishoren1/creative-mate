@@ -1,0 +1,38 @@
+.profile {
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile_header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile_options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.option {
+  text-align: center;
+}
+
+.update_button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.update_button:hover {
+  background-color: #2980b9;
+}
